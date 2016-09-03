@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA1BB2341D7ADB5F00A4E0B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */; };
+		CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */; };
+		CA1BB2391D7ADB5F00A4E0B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */; };
+		CA1BB23B1D7ADB5F00A4E0B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */; };
+		CA1BB23E1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */; };
+		CA1BB2491D7ADB5F00A4E0B7 /* KwikTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */; };
+		CA1BB2541D7ADB5F00A4E0B7 /* KwikTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA1BB2451D7ADB5F00A4E0B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA1BB2281D7ADB5F00A4E0B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA1BB22F1D7ADB5F00A4E0B7;
+			remoteInfo = KwikText;
+		};
+		CA1BB2501D7ADB5F00A4E0B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA1BB2281D7ADB5F00A4E0B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA1BB22F1D7ADB5F00A4E0B7;
+			remoteInfo = KwikText;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA1BB2301D7ADB5F00A4E0B7 /* KwikText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KwikText.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CA1BB2381D7ADB5F00A4E0B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA1BB23D1D7ADB5F00A4E0B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA1BB23F1D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1BB2441D7ADB5F00A4E0B7 /* KwikTextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KwikTextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwikTextTests.swift; sourceTree = "<group>"; };
+		CA1BB24A1D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1BB24F1D7ADB5F00A4E0B7 /* KwikTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KwikTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwikTextUITests.swift; sourceTree = "<group>"; };
+		CA1BB2551D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA1BB22D1D7ADB5F00A4E0B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB2411D7ADB5F00A4E0B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB24C1D7ADB5F00A4E0B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA1BB2271D7ADB5F00A4E0B7 = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2321D7ADB5F00A4E0B7 /* KwikText */,
+				CA1BB2471D7ADB5F00A4E0B7 /* KwikTextTests */,
+				CA1BB2521D7ADB5F00A4E0B7 /* KwikTextUITests */,
+				CA1BB2311D7ADB5F00A4E0B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA1BB2311D7ADB5F00A4E0B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2301D7ADB5F00A4E0B7 /* KwikText.app */,
+				CA1BB2441D7ADB5F00A4E0B7 /* KwikTextTests.xctest */,
+				CA1BB24F1D7ADB5F00A4E0B7 /* KwikTextUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA1BB2321D7ADB5F00A4E0B7 /* KwikText */ = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */,
+				CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */,
+				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
+				CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */,
+				CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */,
+				CA1BB23F1D7ADB5F00A4E0B7 /* Info.plist */,
+			);
+			path = KwikText;
+			sourceTree = "<group>";
+		};
+		CA1BB2471D7ADB5F00A4E0B7 /* KwikTextTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */,
+				CA1BB24A1D7ADB5F00A4E0B7 /* Info.plist */,
+			);
+			path = KwikTextTests;
+			sourceTree = "<group>";
+		};
+		CA1BB2521D7ADB5F00A4E0B7 /* KwikTextUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */,
+				CA1BB2551D7ADB5F00A4E0B7 /* Info.plist */,
+			);
+			path = KwikTextUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA1BB22F1D7ADB5F00A4E0B7 /* KwikText */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1BB2581D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikText" */;
+			buildPhases = (
+				CA1BB22C1D7ADB5F00A4E0B7 /* Sources */,
+				CA1BB22D1D7ADB5F00A4E0B7 /* Frameworks */,
+				CA1BB22E1D7ADB5F00A4E0B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KwikText;
+			productName = KwikText;
+			productReference = CA1BB2301D7ADB5F00A4E0B7 /* KwikText.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA1BB2431D7ADB5F00A4E0B7 /* KwikTextTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1BB25B1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextTests" */;
+			buildPhases = (
+				CA1BB2401D7ADB5F00A4E0B7 /* Sources */,
+				CA1BB2411D7ADB5F00A4E0B7 /* Frameworks */,
+				CA1BB2421D7ADB5F00A4E0B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA1BB2461D7ADB5F00A4E0B7 /* PBXTargetDependency */,
+			);
+			name = KwikTextTests;
+			productName = KwikTextTests;
+			productReference = CA1BB2441D7ADB5F00A4E0B7 /* KwikTextTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CA1BB24E1D7ADB5F00A4E0B7 /* KwikTextUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA1BB25E1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextUITests" */;
+			buildPhases = (
+				CA1BB24B1D7ADB5F00A4E0B7 /* Sources */,
+				CA1BB24C1D7ADB5F00A4E0B7 /* Frameworks */,
+				CA1BB24D1D7ADB5F00A4E0B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA1BB2511D7ADB5F00A4E0B7 /* PBXTargetDependency */,
+			);
+			name = KwikTextUITests;
+			productName = KwikTextUITests;
+			productReference = CA1BB24F1D7ADB5F00A4E0B7 /* KwikTextUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA1BB2281D7ADB5F00A4E0B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = PaulBa71;
+				TargetAttributes = {
+					CA1BB22F1D7ADB5F00A4E0B7 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					CA1BB2431D7ADB5F00A4E0B7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = CA1BB22F1D7ADB5F00A4E0B7;
+					};
+					CA1BB24E1D7ADB5F00A4E0B7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = CA1BB22F1D7ADB5F00A4E0B7;
+					};
+				};
+			};
+			buildConfigurationList = CA1BB22B1D7ADB5F00A4E0B7 /* Build configuration list for PBXProject "KwikText" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA1BB2271D7ADB5F00A4E0B7;
+			productRefGroup = CA1BB2311D7ADB5F00A4E0B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA1BB22F1D7ADB5F00A4E0B7 /* KwikText */,
+				CA1BB2431D7ADB5F00A4E0B7 /* KwikTextTests */,
+				CA1BB24E1D7ADB5F00A4E0B7 /* KwikTextUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA1BB22E1D7ADB5F00A4E0B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1BB23E1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard in Resources */,
+				CA1BB23B1D7ADB5F00A4E0B7 /* Assets.xcassets in Resources */,
+				CA1BB2391D7ADB5F00A4E0B7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB2421D7ADB5F00A4E0B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB24D1D7ADB5F00A4E0B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA1BB22C1D7ADB5F00A4E0B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */,
+				CA1BB2341D7ADB5F00A4E0B7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB2401D7ADB5F00A4E0B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1BB2491D7ADB5F00A4E0B7 /* KwikTextTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA1BB24B1D7ADB5F00A4E0B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA1BB2541D7ADB5F00A4E0B7 /* KwikTextUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA1BB2461D7ADB5F00A4E0B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA1BB22F1D7ADB5F00A4E0B7 /* KwikText */;
+			targetProxy = CA1BB2451D7ADB5F00A4E0B7 /* PBXContainerItemProxy */;
+		};
+		CA1BB2511D7ADB5F00A4E0B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA1BB22F1D7ADB5F00A4E0B7 /* KwikText */;
+			targetProxy = CA1BB2501D7ADB5F00A4E0B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA1BB2381D7ADB5F00A4E0B7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA1BB23D1D7ADB5F00A4E0B7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA1BB2561D7ADB5F00A4E0B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA1BB2571D7ADB5F00A4E0B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA1BB2591D7ADB5F00A4E0B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KwikText/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikText;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA1BB25A1D7ADB5F00A4E0B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KwikText/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikText;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA1BB25C1D7ADB5F00A4E0B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KwikTextTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KwikText.app/KwikText";
+			};
+			name = Debug;
+		};
+		CA1BB25D1D7ADB5F00A4E0B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KwikTextTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KwikText.app/KwikText";
+			};
+			name = Release;
+		};
+		CA1BB25F1D7ADB5F00A4E0B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KwikTextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KwikText;
+			};
+			name = Debug;
+		};
+		CA1BB2601D7ADB5F00A4E0B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KwikTextUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = KwikText;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA1BB22B1D7ADB5F00A4E0B7 /* Build configuration list for PBXProject "KwikText" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1BB2561D7ADB5F00A4E0B7 /* Debug */,
+				CA1BB2571D7ADB5F00A4E0B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA1BB2581D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikText" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1BB2591D7ADB5F00A4E0B7 /* Debug */,
+				CA1BB25A1D7ADB5F00A4E0B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA1BB25B1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1BB25C1D7ADB5F00A4E0B7 /* Debug */,
+				CA1BB25D1D7ADB5F00A4E0B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA1BB25E1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA1BB25F1D7ADB5F00A4E0B7 /* Debug */,
+				CA1BB2601D7ADB5F00A4E0B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA1BB2281D7ADB5F00A4E0B7 /* Project object */;
+}
