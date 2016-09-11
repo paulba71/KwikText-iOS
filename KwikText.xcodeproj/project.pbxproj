@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA1B1C201D83463A003289D1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1B1C1F1D83463A003289D1 /* MessageUI.framework */; };
 		CA1BB2341D7ADB5F00A4E0B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */; };
 		CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */; };
 		CA1BB2391D7ADB5F00A4E0B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		CA1BB23E1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */; };
 		CA1BB2491D7ADB5F00A4E0B7 /* KwikTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */; };
 		CA1BB2541D7ADB5F00A4E0B7 /* KwikTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */; };
+		CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA1B1C1F1D83463A003289D1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CA1BB2301D7ADB5F00A4E0B7 /* KwikText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KwikText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		CA1BB24F1D7ADB5F00A4E0B7 /* KwikTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KwikTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwikTextUITests.swift; sourceTree = "<group>"; };
 		CA1BB2551D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA1B1C201D83463A003289D1 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA1B1C1E1D83463A003289D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA1B1C1F1D83463A003289D1 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA1BB2271D7ADB5F00A4E0B7 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,7 @@
 				CA1BB2471D7ADB5F00A4E0B7 /* KwikTextTests */,
 				CA1BB2521D7ADB5F00A4E0B7 /* KwikTextUITests */,
 				CA1BB2311D7ADB5F00A4E0B7 /* Products */,
+				CA1B1C1E1D83463A003289D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +114,7 @@
 				CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */,
 				CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */,
 				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
+				CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */,
 				CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */,
 				CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */,
 				CA1BB23F1D7ADB5F00A4E0B7 /* Info.plist */,
@@ -188,18 +203,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = PaulBa71;
 				TargetAttributes = {
 					CA1BB22F1D7ADB5F00A4E0B7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CVPV8WR9Y3;
+						LastSwiftMigration = 0800;
 					};
 					CA1BB2431D7ADB5F00A4E0B7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = CA1BB22F1D7ADB5F00A4E0B7;
 					};
 					CA1BB24E1D7ADB5F00A4E0B7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = CA1BB22F1D7ADB5F00A4E0B7;
 					};
 				};
@@ -257,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */,
+				CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */,
 				CA1BB2341D7ADB5F00A4E0B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,8 +346,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -371,8 +393,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -391,6 +415,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -399,10 +424,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CVPV8WR9Y3;
 				INFOPLIST_FILE = KwikText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikText;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -410,10 +440,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CVPV8WR9Y3;
 				INFOPLIST_FILE = KwikText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikText;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -425,6 +460,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KwikText.app/KwikText";
 			};
 			name = Debug;
@@ -437,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KwikText.app/KwikText";
 			};
 			name = Release;
@@ -448,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KwikText;
 			};
 			name = Debug;
@@ -459,6 +497,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PaulBa71.KwikTextUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = KwikText;
 			};
 			name = Release;
@@ -482,6 +521,7 @@
 				CA1BB25A1D7ADB5F00A4E0B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA1BB25B1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +530,7 @@
 				CA1BB25D1D7ADB5F00A4E0B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA1BB25E1D7ADB5F00A4E0B7 /* Build configuration list for PBXNativeTarget "KwikTextUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +539,7 @@
 				CA1BB2601D7ADB5F00A4E0B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
