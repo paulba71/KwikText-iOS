@@ -16,6 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        UINavigationBar.appearance().barTintColor = UIColor.init(red: 48.0/255, green: 63.0/255, blue: 160.0/255, alpha: 1.0);
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        //UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont(name: "", size)]
+        
+        // Set navigation bar title colour
+        UINavigationBar.appearance().tintColor=UIColor.white
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: "MainIcon")
+        imageView.image = image
+
+        
+        
         return true
     }
 
@@ -41,6 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    
 }
 

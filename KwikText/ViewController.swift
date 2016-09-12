@@ -11,6 +11,7 @@ import MessageUI
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate {
 
+    @IBOutlet weak var banner: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var messages: [String] = []
@@ -144,6 +145,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Load the settings from the user settings.
         LoadTemplatesFromSettings()
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // 1
+        //var nav = self.navigationController?.navigationBar
+        // 2
+        //nav?.barStyle = UIBarStyle.black
+        //nav?.tintColor = UIColor.yellow
+        // 3
+        //let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        //imageView.contentMode = .scaleAspectFit
+        // 4
+        //let image = UIImage(named: "AppIcon")
+        //imageView.image = image
+        // 5
+        //navigationItem.titleView = imageView
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -200,6 +220,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DoMessageSend(indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAddEditSegue"{
+            if let destVC=segue.destination as? AddEditViewController {
+                destVC.message = "Type in the message"
+                destVC.name = "Type the name you want to send to"
+                destVC.number = "99999"
+                destVC.index = -1
+            }
+        }
+    }
 
     @IBAction func reset(_ sender: AnyObject) {
 
@@ -227,6 +258,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         present(confirm,animated: true, completion: nil)
         
         }
+    
+    @IBAction func unwindToMainView(unwindSegue: UIStoryboardSegue) {
+        
+    }
 
 }
 

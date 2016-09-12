@@ -15,6 +15,7 @@
 		CA1BB23E1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */; };
 		CA1BB2491D7ADB5F00A4E0B7 /* KwikTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */; };
 		CA1BB2541D7ADB5F00A4E0B7 /* KwikTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */; };
+		CA3B8E091D8600B000062EC7 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */; };
 		CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		CA1BB24F1D7ADB5F00A4E0B7 /* KwikTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KwikTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwikTextUITests.swift; sourceTree = "<group>"; };
 		CA1BB2551D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 			children = (
 				CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */,
 				CA1BB2351D7ADB5F00A4E0B7 /* ViewController.swift */,
+				CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */,
 				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
 				CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */,
 				CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3B8E091D8600B000062EC7 /* AddEditViewController.swift in Sources */,
 				CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */,
 				CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */,
 				CA1BB2341D7ADB5F00A4E0B7 /* AppDelegate.swift in Sources */,
