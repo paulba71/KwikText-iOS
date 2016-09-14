@@ -16,7 +16,9 @@
 		CA1BB2491D7ADB5F00A4E0B7 /* KwikTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2481D7ADB5F00A4E0B7 /* KwikTextTests.swift */; };
 		CA1BB2541D7ADB5F00A4E0B7 /* KwikTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */; };
 		CA3B8E091D8600B000062EC7 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */; };
+		CA3B8E0B1D87690500062EC7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3B8E0A1D87690500062EC7 /* ContactsUI.framework */; };
 		CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */; };
+		CAD6696A1D895A93008F49F6 /* Numbers Custom Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD669691D895A93008F49F6 /* Numbers Custom Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		CA1BB2531D7ADB5F00A4E0B7 /* KwikTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KwikTextUITests.swift; sourceTree = "<group>"; };
 		CA1BB2551D7ADB5F00A4E0B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
+		CA3B8E0A1D87690500062EC7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		CAD669691D895A93008F49F6 /* Numbers Custom Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Numbers Custom Cell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3B8E0B1D87690500062EC7 /* ContactsUI.framework in Frameworks */,
 				CA1B1C201D83463A003289D1 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +89,7 @@
 		CA1B1C1E1D83463A003289D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA3B8E0A1D87690500062EC7 /* ContactsUI.framework */,
 				CA1B1C1F1D83463A003289D1 /* MessageUI.framework */,
 			);
 			name = Frameworks;
@@ -118,6 +124,7 @@
 				CA3B8E081D8600B000062EC7 /* AddEditViewController.swift */,
 				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
 				CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */,
+				CAD669691D895A93008F49F6 /* Numbers Custom Cell.swift */,
 				CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */,
 				CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */,
 				CA1BB23F1D7ADB5F00A4E0B7 /* Info.plist */,
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD6696A1D895A93008F49F6 /* Numbers Custom Cell.swift in Sources */,
 				CA3B8E091D8600B000062EC7 /* AddEditViewController.swift in Sources */,
 				CA1BB2361D7ADB5F00A4E0B7 /* ViewController.swift in Sources */,
 				CA925A8B1D82B5CC004BB6D1 /* CustomCell.swift in Sources */,

@@ -28,17 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                   UIImage(named:"person"),
                   UIImage(named:"person"),
                   UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
-                  UIImage(named:"person"),
                   UIImage(named:"person")
     ]
     
@@ -52,6 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let numbersKey="NumberText"
     
     let appSettings=UserDefaults.standard;
+    
+    // Variables to hold the results of the add / edit view
+    var addMessage=""
+    var addName=""
+    var addNumber=""
+    var addImage: UIImage = UIImage(named:"person")!
+    
+    var selectedItem = -1
     
     func LoadDefaults()
     {
@@ -116,6 +113,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dismiss the controller...
         controller.dismiss(animated: true, completion: nil)
     }
+    
     func DoMessageSend(_ item: Int){
         // If there is no number ask for one...
         if item < phoneNumbers.count && !phoneNumbers[item].isEmpty {
@@ -150,19 +148,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        // 1
-        //var nav = self.navigationController?.navigationBar
-        // 2
-        //nav?.barStyle = UIBarStyle.black
-        //nav?.tintColor = UIColor.yellow
-        // 3
-        //let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        //imageView.contentMode = .scaleAspectFit
-        // 4
-        //let image = UIImage(named: "AppIcon")
-        //imageView.image = image
-        // 5
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: "MainIcon")
+        imageView.image = image
+
         //navigationItem.titleView = imageView
+        navigationItem.title="KwikText"
+        navigationItem.backBarButtonItem?.title="Back"
         
     }
 
@@ -224,9 +219,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAddEditSegue"{
             if let destVC=segue.destination as? AddEditViewController {
-                destVC.message = "Type in the message"
-                destVC.name = "Type the name you want to send to"
-                destVC.number = "99999"
+                destVC.message = ""
+                destVC.name = ""
+                destVC.number = ""
                 destVC.index = -1
             }
         }
@@ -260,7 +255,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     
     @IBAction func unwindToMainView(unwindSegue: UIStoryboardSegue) {
-        
+        // Edit the items...
+        if selectedItem == -1{
+            // Add mode
+            messages.append(addMessage)
+            targets.append(addName)
+            phoneNumbers.append(addNumber)
+            // Handle the image next
+            SaveTemplatesToSettings()
+            tableView.reloadData()
+            
+        } else {
+            // TODO - Edit mode
+        }
     }
 
 }

@@ -7,21 +7,23 @@
 //
 
 import UIKit
-import Contacts
 import ContactsUI
 
-class AddEditViewController: UIViewController, CNContactPickerDelegate {
+class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     var message: String = ""
     var name: String = ""
     var number: String = ""
     var index: Int = -1
     
+    var phoneNumbers: [String] = []
+    
     var contactStore = CNContactStore()
 
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
+    @IBOutlet weak var contactImage: UIImageView!
     
     
     override func viewDidLoad() {
@@ -32,12 +34,23 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate {
         nameField.text=name
         numberField.text=number
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if index == -1{
+            navigationItem.title="Add item"
+        } else {
+            navigationItem.title="Edit item"
+        }
+        navigationItem.backBarButtonItem?.title="Back"
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // Respond to the choose from contacts button press. Display the contacts picker
     @IBAction func chooseFromContacts(_ sender: AnyObject) {
         let controller = CNContactPickerViewController()
         controller.delegate = self;
@@ -48,15 +61,55 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate {
         navigationController?.present(controller, animated: true, completion: nil)
     }
     
+    
+    @IBOutlet weak var numberSelectionLabel: UILabel!
+    @IBOutlet weak var numberSelectionTable: UITableView!
+
+    
+    // Called when the user has picked a contact
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         self.nameField.text = contact.givenName + " " + contact.familyName
+        if let imageData = contact.imageData {
+            self.contactImage.image = UIImage(data: imageData)
+            self.contactImage.contentMode = UIViewContentMode.scaleAspectFit
+        }
         if contact.phoneNumbers.count==1{
             self.numberField.text = contact.phoneNumbers[0].value.stringValue;
+            
         }
         else{
             // Allow the user to pick one...
+            phoneNumbers.removeAll()
+            for num in contact.phoneNumbers{
+                var line=num.value.stringValue;
+                line += " ["
+                line += num.label!
+                line += "]"
+                phoneNumbers.append(line)
+            }
+            numberSelectionLabel.isHidden=false
+            numberSelectionTable.isHidden=false
+            numberSelectionTable.reloadData()
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return phoneNumbers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NumbersCustomCell
         
+        // Fill in the data
+        cell.cellLabel.text=phoneNumbers[(indexPath as NSIndexPath).row]
+        return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Choose the number and hide the table...
+        numberSelectionLabel.isHidden=true
+        numberSelectionTable.isHidden=true
     }
     
     func showMessage(text: String){
@@ -95,14 +148,22 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate {
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "unwindToMainView"{
+            if let destVC=segue.destination as? ViewController {
+                destVC.addMessage = messageField.text!
+                destVC.addName = nameField.text!
+                destVC.addNumber = numberField.text!
+                destVC.addImage = contactImage.image!
+            }
+        }
     }
-    */
+    
 
 }
