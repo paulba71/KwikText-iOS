@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let messagesKey="MessageText"
     let targetsKey="TargetText"
     let numbersKey="NumberText"
+    let imagesKey="Images"
     
     let appSettings=UserDefaults.standard;
     
@@ -89,6 +90,105 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ]
     }
     
+    func initImages()
+    {
+        images = [UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person"),
+                  UIImage(named:"person")
+        ]
+
+    }
+    
+    // Functions to load and save the image arrays
+    
+    // Save an individual file...
+    func saveImageDocumentDirectory(image: UIImage, index: Int){
+        let fileName="Image" + String(index) + ".jpg"
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
+        print("Saving - " + paths)
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+    }
+    
+    func getDirectoryPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+    func getImage(index: Int) -> UIImage{
+        let fileManager = FileManager.default
+        let fileName="Image" + String(index) + ".jpg"
+        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(fileName)
+        if fileManager.fileExists(atPath: imagePAth){
+            print("Loading - " + imagePAth)
+            return UIImage(contentsOfFile: imagePAth)!
+        }else{
+            print("No Image")
+            return UIImage(named:"person")!;
+        }
+    }
+    
+    func createDirectory(){
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("customDirectory")
+        if !fileManager.fileExists(atPath: paths){
+            try! fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
+        }else{
+            print("Already dictionary created.")
+        }
+    }
+    
+    func deleteDirectory(){
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("customDirectory")
+        if fileManager.fileExists(atPath: paths){
+            try! fileManager.removeItem(atPath: paths)
+        }else{
+            print("Something wrong.")
+        }
+    }
+    
+    func saveImages() -> Bool {
+        do {
+            var index=0
+            deleteDirectory()   // Remove all old images
+            createDirectory()   // Create the new dir
+            for image in images {
+                saveImageDocumentDirectory(image: image!, index: index)
+                index += 1;
+            }
+            return true
+        }
+        catch {
+            return false
+        }
+    }
+    
+    func loadImages() -> Bool {
+        do {
+            images.removeAll()
+            var index = 0
+            while index < phoneNumbers.count {
+                let image=getImage(index: index)
+                images.append(image)
+                index+=1
+            }
+            return true
+        }
+        catch {
+            return false
+        }
+    }
+    
+    
     func LoadTemplatesFromSettings(){
         let count = appSettings.integer(forKey: templatesCountKey)
         
@@ -99,6 +199,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             messages=appSettings.object(forKey: messagesKey) as? [String] ?? [String]()
             targets=appSettings.object(forKey: targetsKey) as? [String] ?? [String]()
             phoneNumbers=appSettings.object(forKey: numbersKey) as? [String] ?? [String]()
+            if loadImages() == false{
+                print("Failed to load images")
+            }
+            if images.count != phoneNumbers.count{
+                initImages()
+            }
         } else {
             // First time out - save settings so they are here next time.
             LoadDefaults()
@@ -122,9 +228,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             messageVC.body=messages[item]
             messageVC.recipients=[phoneNumbers[item]]
             self.present(messageVC, animated: true, completion: nil)
-            
-            
+        } else {
+            // prompt for a number
+            let alert = UIAlertController(title: "No number stored", message: "Please enter a number to send to", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: nil))
+            alert.addTextField(configurationHandler: {(textField: UITextField!) in
+                textField.placeholder = "Enter number:"
+                textField.keyboardType = UIKeyboardType.phonePad
+            })
+            self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func sendHandler (message: String, number: String)
+    {
+        let messageVC=MFMessageComposeViewController()
+        messageVC.messageComposeDelegate=self
+        messageVC.body=message
+        messageVC.recipients=[number]
+        self.present(messageVC, animated: true, completion: nil)
     }
     
     func SaveTemplatesToSettings(){
@@ -132,6 +254,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         appSettings.set(messages, forKey: messagesKey)
         appSettings.set(phoneNumbers, forKey: numbersKey)
         appSettings.set(targets, forKey: targetsKey)
+        //appSettings.set(images, forKey: imagesKey)  // images wont work... need to save to document storage
+        if saveImages() == false{
+            print("Images failed to save")
+        }
         appSettings.synchronize()
     }
     
@@ -175,14 +301,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
         
         // Fill in the data
-        
+        if indexPath.row >= images.count {
+            cell.photo.image = UIImage(named:"person") // Fallback in the case of not loading the image files
+        } else {
+            cell.photo.image=images[(indexPath as NSIndexPath).row]
+        }
         cell.photo.image=images[(indexPath as NSIndexPath).row]
         cell.messageLabel.text=messages[(indexPath as NSIndexPath).row]
         cell.targetLabel.text=targets[(indexPath as NSIndexPath).row]
         return cell;
     }
     
-    // Handle the delete swipe mode...
+    // Handle the delete and edit swipe mode...
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let myAction=UITableViewRowAction(style: .default, title: "Delete", handler: {
             // closure parameters passed in by the system // Closure is just an anonomous method
@@ -205,7 +335,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         })
         
-        let actions=[myAction]
+        let myAction2=UITableViewRowAction(style: .normal, title: "Edit", handler: {
+            // closure parameters passed in by the system // Closure is just an anonomous method
+            action, indexPath in
+            
+            // do the edit...
+            self.selectedItem=indexPath.row
+            self.performSegue(withIdentifier: "showAddEditSegue", sender: self)
+            
+            // save to disk
+            self.SaveTemplatesToSettings()
+            
+            // refresh
+            tableView.reloadData();
+            
+            // tell the table view it's done editing
+            tableView.isEditing=false
+            
+        })
+        
+        let actions=[myAction,myAction2]
         return actions
 
     }
@@ -219,10 +368,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAddEditSegue"{
             if let destVC=segue.destination as? AddEditViewController {
-                destVC.message = ""
-                destVC.name = ""
-                destVC.number = ""
-                destVC.index = -1
+                if(selectedItem == -1)
+                {
+                    destVC.message = ""
+                    destVC.name = ""
+                    destVC.number = ""
+                    destVC.image = UIImage(named:"person")!
+                    destVC.index = -1
+                } else {
+                    destVC.index = selectedItem
+                    destVC.name = targets[selectedItem]
+                    destVC.number = phoneNumbers[selectedItem]
+                    destVC.message = messages[selectedItem]
+                    destVC.image=images[selectedItem]!
+                }
             }
         }
     }
@@ -261,12 +420,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             messages.append(addMessage)
             targets.append(addName)
             phoneNumbers.append(addNumber)
-            // Handle the image next
+            images.append(addImage)
             SaveTemplatesToSettings()
             tableView.reloadData()
             
         } else {
-            // TODO - Edit mode
+            // TODO - Edit mode selectedItem
+            messages[selectedItem]=addMessage
+            targets[selectedItem]=addName
+            phoneNumbers[selectedItem]=addNumber
+            images[selectedItem]=addImage
+            SaveTemplatesToSettings()
+            tableView.reloadData()
         }
     }
 

@@ -9,14 +9,17 @@
 import UIKit
 import ContactsUI
 
-class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableViewDataSource, UITableViewDelegate {
+class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopoverPresentationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var message: String = ""
     var name: String = ""
     var number: String = ""
     var index: Int = -1
+    var image: UIImage=UIImage(named:"person")!
     
     var phoneNumbers: [String] = []
+    
+    var numberChoices: [String] = []
     
     var contactStore = CNContactStore()
 
@@ -33,6 +36,30 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
         messageField.text=message
         nameField.text=name
         numberField.text=number
+        contactImage.image=image
+        
+        // Setup a touch recogniser for the image
+        let singleTap=UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
+        singleTap.numberOfTapsRequired=1
+        contactImage.isUserInteractionEnabled=true
+        contactImage.addGestureRecognizer(singleTap)
+        
+    }
+    
+
+    func tapDetected(){
+         // open the contacts...
+        print("Tap on image")
+        pickerView.isHidden=true
+        pickerLabel.isHidden=true
+        
+        let controller = CNContactPickerViewController()
+        controller.delegate = self;
+        controller.predicateForEnablingContact =
+            NSPredicate(format:
+                "phoneNumbers.@count > 0",
+                        argumentArray: nil)
+        navigationController?.present(controller, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +69,7 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
             navigationItem.title="Edit item"
         }
         navigationItem.backBarButtonItem?.title="Back"
+        //addChildViewController(PhonesPopupViewController)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +80,9 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
     
     // Respond to the choose from contacts button press. Display the contacts picker
     @IBAction func chooseFromContacts(_ sender: AnyObject) {
+        pickerView.isHidden=true
+        pickerLabel.isHidden=true
+        
         let controller = CNContactPickerViewController()
         controller.delegate = self;
         controller.predicateForEnablingContact =
@@ -61,10 +92,6 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
         navigationController?.present(controller, animated: true, completion: nil)
     }
     
-    
-    @IBOutlet weak var numberSelectionLabel: UILabel!
-    @IBOutlet weak var numberSelectionTable: UITableView!
-
     
     // Called when the user has picked a contact
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
@@ -83,71 +110,50 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
             for num in contact.phoneNumbers{
                 var line=num.value.stringValue;
                 line += " ["
-                line += num.label!
+                var label=num.label
+                label=label?.replacingOccurrences(of: "_$!<", with: "")
+                label=label?.replacingOccurrences(of: ">!$_", with: "")
+                line += label!
                 line += "]"
+                
                 phoneNumbers.append(line)
             }
-            numberSelectionLabel.isHidden=false
-            numberSelectionTable.isHidden=false
-            numberSelectionTable.reloadData()
+            numberChoices=phoneNumbers
+            // Show the picker view
+            pickerView.isHidden=false
+            pickerLabel.isHidden=false
+            pickerView.reloadAllComponents()
         }
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return phoneNumbers.count
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerLabel: UILabel!
+ 
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NumbersCustomCell
-        
-        // Fill in the data
-        cell.cellLabel.text=phoneNumbers[(indexPath as NSIndexPath).row]
-        return cell;
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return numberChoices.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Choose the number and hide the table...
-        numberSelectionLabel.isHidden=true
-        numberSelectionTable.isHidden=true
-    }
-    
-    func showMessage(text: String){
-        let alertController = UIAlertController(title: "KwikText", message:
-            text, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
-        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        
-        switch authorizationStatus {
-        case .authorized:
-            completionHandler(true)
-            
-        case .denied, .notDetermined:
-            self.contactStore.requestAccess(for: CNEntityType.contacts, completionHandler: { (access, accessError) -> Void in
-                if access {
-                    completionHandler(access)
-                }
-                else {
-                    if authorizationStatus == CNAuthorizationStatus.denied {
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
-                            self.showMessage(text: message)
-                        })
-                    }
-                }
-            })
-            
-        default:
-            completionHandler(false)
-        }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return numberChoices[row]
     }
     
     
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Set the text
+        let item=numberChoices[row]
+        let index=item.range(of: "[", options: .backwards)
+        let newItem=item.substring(to: (index?.lowerBound)!)
+        numberField.text=newItem
+        // Hide the picker
+        pickerView.isHidden=true
+        pickerLabel.isHidden=true
+    }
     
     // MARK: - Navigation
 
@@ -163,6 +169,22 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UITableV
                 destVC.addImage = contactImage.image!
             }
         }
+        
+        if segue.identifier == "showPhonesPopup"
+        {
+            let vc=segue.destination as! PhonesPopupViewController
+            let controller = vc.popoverPresentationController
+            if controller != nil {
+                controller!.delegate=self
+            }
+            print("prepare showPhonesPopup")
+            vc.phoneNumbers=phoneNumbers
+
+        }
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none;
     }
     
 
