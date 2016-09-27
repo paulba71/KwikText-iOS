@@ -17,6 +17,14 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopove
     var index: Int = -1
     var image: UIImage=UIImage(named:"person")!
     
+    enum ModeType {
+        case ModeAdd
+        case ModeEdit
+        case ModeClone
+    }
+    
+    var mode=ModeType.ModeAdd
+    
     var phoneNumbers: [String] = []
     
     var numberChoices: [String] = []
@@ -33,11 +41,19 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopove
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        messageField.text=message
-        nameField.text=name
-        numberField.text=number
-        contactImage.image=image
-        
+        if(mode != ModeType.ModeAdd)
+        {
+            messageField.text=message
+            nameField.text=name
+            numberField.text=number
+            contactImage.image=image
+        }
+        else{
+            messageField.text=""
+            nameField.text=""
+            numberField.text=""
+            contactImage.image=UIImage(named:"person")!	
+        }
         // Setup a touch recogniser for the image
         let singleTap=UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
         singleTap.numberOfTapsRequired=1
@@ -140,8 +156,6 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopove
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return numberChoices[row]
     }
-    
-    
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

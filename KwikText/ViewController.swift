@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var addName=""
     var addNumber=""
     var addImage: UIImage = UIImage(named:"person")!
+    var addSelectedItem = -1
     
     var selectedItem = -1
     
@@ -273,6 +274,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -365,17 +367,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedItem = 	-1;
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAddEditSegue"{
             if let destVC=segue.destination as? AddEditViewController {
+                addSelectedItem = selectedItem // Need to preserve this state to handle a back button press also.
                 if(selectedItem == -1)
                 {
+                    destVC.mode = AddEditViewController.ModeType.ModeAdd
                     destVC.message = ""
                     destVC.name = ""
                     destVC.number = ""
                     destVC.image = UIImage(named:"person")!
                     destVC.index = -1
                 } else {
+                    destVC.mode = AddEditViewController.ModeType.ModeEdit
                     destVC.index = selectedItem
                     destVC.name = targets[selectedItem]
                     destVC.number = phoneNumbers[selectedItem]
@@ -383,6 +392,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     destVC.image=images[selectedItem]!
                 }
             }
+        }
+        
+        if(segue.identifier == "showEditSegue"){
+            print("Edit segue")
         }
     }
 
@@ -411,9 +424,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Show it
         present(confirm,animated: true, completion: nil)
         
-        }
+    }
+    
+    @IBAction func addButtonClick(_ sender: AnyObject) {
+        print("add clicked")
+        selectedItem = -1
+        self.performSegue(withIdentifier: "showAddEditSegue", sender: tableView)
+    }
+    
     
     @IBAction func unwindToMainView(unwindSegue: UIStoryboardSegue) {
+        print(unwindSegue.identifier)
         // Edit the items...
         if selectedItem == -1{
             // Add mode
@@ -430,10 +451,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             targets[selectedItem]=addName
             phoneNumbers[selectedItem]=addNumber
             images[selectedItem]=addImage
+            selectedItem = -1
             SaveTemplatesToSettings()
             tableView.reloadData()
         }
     }
+    
+    
 
 }
 

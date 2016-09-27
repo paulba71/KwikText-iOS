@@ -23,7 +23,7 @@
                                 <items>
                                     <barButtonItem image="AddIcon" id="0MG-Zb-G2j">
                                         <connections>
-                                            <segue destination="Bem-KP-x4b" kind="show" identifier="showAddEditSegue" id="zEw-Sz-iH4"/>
+                                            <action selector="addButtonClick:" destination="BYZ-38-t0r" id="G8J-Bo-qbp"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8Bd-Di-aeI"/>
@@ -107,9 +107,12 @@
                             <constraint firstItem="3BP-5L-Ll2" firstAttribute="top" secondItem="e2E-n1-XVy" secondAttribute="bottom" id="pfz-3z-ASk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bVZ-ua-DOy"/>
+                    <navigationItem key="navigationItem" id="bVZ-ua-DOy">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Edit" id="Urh-NL-rk2"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="e2E-n1-XVy" id="9uH-E1-Fzo"/>
+                        <segue destination="Bem-KP-x4b" kind="show" identifier="showAddEditSegue" id="VkI-Kd-Sd3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -311,7 +314,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUw-XM-y6y">
                                 <frame key="frameInset" minX="33" minY="229" width="317" height="344"/>
-                                <mutableString key="text">This app will send your common SMS messages as templates. You can add, edit and delete the templates as you see fit after installing... Also available on WIndows Phone and Android. Sourcecode will be posted in GitHub soon also. I built this for myself as I found it useful. Hopefully you will feel the same. Feel free to fire me off feedback or feature requests using the link below:</mutableString>
+                                <string key="text">This app will send your common SMS messages as templates. You can add, edit and delete the templates as you see fit after installing... Also available on WIndows Phone and Android. Sourcecode will be posted in GitHub soon also. I built this for myself as I found it useful. Hopefully you will feel the same. Feel free to fire me off feedback or feature requests using the link below:</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
