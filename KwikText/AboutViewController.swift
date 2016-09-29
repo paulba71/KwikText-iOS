@@ -15,8 +15,34 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Choose the right label font size for the screen size
+        if UIScreen.main.bounds.size.height == 480 {
+            // iPhone 4
+            label.font = label.font.withSize(15)
+            
+        } else if UIScreen.main.bounds.size.height == 568 {
+            // IPhone 5
+            label.font = label.font.withSize(15)
+            
+        } else if UIScreen.main.bounds.size.width == 375 {
+            // iPhone 6
+            label.font = label.font.withSize(20)
+            
+        } else if UIScreen.main.bounds.size.width == 414 {
+            // iPhone 6+
+            label.font = label.font.withSize(20)
+            
+        } else if UIScreen.main.bounds.size.width == 768 {
+            // iPad
+            label.font = label.font.withSize(20)
+            
+        }
     }
 
+    @IBOutlet weak var label: UILabel!
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

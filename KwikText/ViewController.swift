@@ -56,38 +56,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     {
         templatesCount=9
         
-        messages=["Test the app",
-                    "On my way",
+        messages=["On my way",
+                    "Stuck in traffic",
                       "Leaving in five",
                       "In a meeting - call you when done",
                       "Give me a buzz when you get a chance",
                       "Everything ok?",
                       "Running late",
                       "Give you a shout in a bit",
-                      "Test the app"
+                      "Home in 5. Flick on the kettle"
         ]
         
-        targets = ["Paul Barnes",
-                   "Sharon Mobile",
-                       "Choose from contacts",
-                       "Paul Barnes",
+        targets = ["Choose from contacts",
+                   "Choose from contacts",
                        "Choose from contacts",
                        "Choose from contacts",
                        "Choose from contacts",
                        "Choose from contacts",
-                       "Paul Barnes"
+                       "Choose from contacts",
+                       "Choose from contacts",
+                       "Choose from contacts"
         ]
         
         
-        phoneNumbers = ["0879398817",
-                        "0879912226",
-                            "",
-                            "0879398817",
+        phoneNumbers = ["",
+                        "",
                             "",
                             "",
                             "",
                             "",
-                            "0879398817"
+                            "",
+                            "",
+                            ""
         ]
     }
     
@@ -429,7 +429,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func addButtonClick(_ sender: AnyObject) {
         print("add clicked")
         selectedItem = -1
-        self.performSegue(withIdentifier: "showAddEditSegue", sender: tableView)
+        if(tableView.numberOfRows(inSection: 0) < maxTemplates)
+        {
+            self.performSegue(withIdentifier: "showAddEditSegue", sender: tableView)
+        }
+        else{
+            // tell the user that the number of
+        }
     }
     
     

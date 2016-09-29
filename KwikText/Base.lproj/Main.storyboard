@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2327e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tjf-D7-OSj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11521.1" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tjf-D7-OSj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -107,9 +107,7 @@
                             <constraint firstItem="3BP-5L-Ll2" firstAttribute="top" secondItem="e2E-n1-XVy" secondAttribute="bottom" id="pfz-3z-ASk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bVZ-ua-DOy">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Edit" id="Urh-NL-rk2"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bVZ-ua-DOy"/>
                     <connections>
                         <outlet property="tableView" destination="e2E-n1-XVy" id="9uH-E1-Fzo"/>
                         <segue destination="Bem-KP-x4b" kind="show" identifier="showAddEditSegue" id="VkI-Kd-Sd3"/>
@@ -293,18 +291,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Templates for iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm7-Wg-KiG">
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FxK-bN-VO4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Written by: Paul Barnes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-ek-HYv">
-                                <frame key="frameInset" minX="33" minY="201" width="309" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Written by: Paul Barnes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-ek-HYv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="13e-uI-jSt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaU-xJ-cF9">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xwr-Qg-P9K"/>
                                     <constraint firstAttribute="width" constant="187" id="eBu-BE-2p4"/>
                                 </constraints>
                                 <state key="normal" title="Send some feedback..."/>
@@ -312,35 +316,38 @@
                                     <action selector="sendFeedback:" destination="uvr-da-DRb" eventType="touchUpInside" id="rdS-MX-eab"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUw-XM-y6y">
-                                <frame key="frameInset" minX="33" minY="229" width="317" height="344"/>
-                                <string key="text">This app will send your common SMS messages as templates. You can add, edit and delete the templates as you see fit after installing... Also available on WIndows Phone and Android. Sourcecode will be posted in GitHub soon also. I built this for myself as I found it useful. Hopefully you will feel the same. Feel free to fire me off feedback or feature requests using the link below:</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="VUw-XM-y6y">
+                                <mutableString key="text">This app is a port to iPhone of an older app I had written for the Windows Phone to specify templates that you frequently send over SMS and send them with one click. I built this for myself as I found it useful. Hopefully you will feel the same. Feel free to fire me off feedback or feature requests using the button below:   Also available on WIndows Phone and Android. Sourcecode will be posted in GitHub soon also.</mutableString>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uaU-xJ-cF9" firstAttribute="trailing" secondItem="heD-HO-3RX" secondAttribute="trailingMargin" id="0bn-XV-NNv"/>
+                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="top" secondItem="USC-hK-j4j" secondAttribute="bottom" constant="8" symbolic="YES" id="0Ug-KR-yRz"/>
                             <constraint firstItem="USC-hK-j4j" firstAttribute="top" secondItem="9Pe-ro-64k" secondAttribute="bottom" constant="8" symbolic="YES" id="2ZR-gF-M8R"/>
-                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="centerX" secondItem="heD-HO-3RX" secondAttribute="centerX" id="2zc-aF-MWc"/>
-                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="trailing" secondItem="rhe-ek-HYv" secondAttribute="trailing" id="3zn-gj-bdh"/>
-                            <constraint firstItem="VUw-XM-y6y" firstAttribute="top" secondItem="rhe-ek-HYv" secondAttribute="bottom" constant="7.5" id="80j-c7-sWq"/>
-                            <constraint firstItem="rhe-ek-HYv" firstAttribute="trailing" secondItem="VUw-XM-y6y" secondAttribute="trailing" constant="-8" id="BDz-DM-rx7"/>
+                            <constraint firstItem="rhe-ek-HYv" firstAttribute="top" secondItem="Jm7-Wg-KiG" secondAttribute="bottom" constant="7" id="4eX-4h-sdl"/>
                             <constraint firstItem="USC-hK-j4j" firstAttribute="centerY" secondItem="dCk-3z-Ak9" secondAttribute="centerY" id="CKU-Js-OHB"/>
-                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="leading" secondItem="heD-HO-3RX" secondAttribute="leadingMargin" constant="17" id="Jdd-2c-MjL"/>
+                            <constraint firstAttribute="bottom" secondItem="uaU-xJ-cF9" secondAttribute="bottom" constant="20" symbolic="YES" id="DwT-gT-Ln8"/>
+                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="leading" secondItem="heD-HO-3RX" secondAttribute="leadingMargin" constant="17" id="Gvc-xH-0fj"/>
+                            <constraint firstItem="VUw-XM-y6y" firstAttribute="top" secondItem="rhe-ek-HYv" secondAttribute="bottom" constant="7" id="HXR-ia-efd"/>
                             <constraint firstItem="USC-hK-j4j" firstAttribute="leading" secondItem="heD-HO-3RX" secondAttribute="leadingMargin" id="Pli-yZ-Tc5"/>
-                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="top" secondItem="USC-hK-j4j" secondAttribute="bottom" constant="8" symbolic="YES" id="cPL-T8-pkv"/>
+                            <constraint firstItem="uaU-xJ-cF9" firstAttribute="top" secondItem="VUw-XM-y6y" secondAttribute="bottom" constant="8" symbolic="YES" id="Xri-LM-VL7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dCk-3z-Ak9" secondAttribute="trailing" constant="9" id="iGG-7M-Pmy"/>
                             <constraint firstItem="dCk-3z-Ak9" firstAttribute="leading" secondItem="heD-HO-3RX" secondAttribute="leadingMargin" constant="84" id="ifl-Ns-51R"/>
+                            <constraint firstItem="VUw-XM-y6y" firstAttribute="trailing" secondItem="uaU-xJ-cF9" secondAttribute="trailing" id="jLB-Qb-siF"/>
+                            <constraint firstItem="rhe-ek-HYv" firstAttribute="trailing" secondItem="VUw-XM-y6y" secondAttribute="trailing" id="ms0-xM-7t3"/>
+                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="leading" secondItem="rhe-ek-HYv" secondAttribute="leading" id="nTN-61-GEg"/>
+                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="trailing" secondItem="rhe-ek-HYv" secondAttribute="trailing" id="nmS-iN-DUY"/>
+                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="trailing" secondItem="heD-HO-3RX" secondAttribute="trailingMargin" id="s6q-xw-6Jd"/>
                             <constraint firstItem="dCk-3z-Ak9" firstAttribute="top" secondItem="9Pe-ro-64k" secondAttribute="bottom" constant="44" id="t3Q-Se-fgL"/>
-                            <constraint firstItem="rhe-ek-HYv" firstAttribute="top" secondItem="Jm7-Wg-KiG" secondAttribute="bottom" constant="23.5" id="tUW-9T-I2F"/>
-                            <constraint firstItem="rhe-ek-HYv" firstAttribute="leading" secondItem="VUw-XM-y6y" secondAttribute="leading" id="wKc-g3-Z0O"/>
-                            <constraint firstAttribute="bottom" secondItem="uaU-xJ-cF9" secondAttribute="bottom" constant="20" symbolic="YES" id="yLd-sS-rbQ"/>
-                            <constraint firstItem="Jm7-Wg-KiG" firstAttribute="leading" secondItem="rhe-ek-HYv" secondAttribute="leading" id="yNj-3F-90V"/>
+                            <constraint firstItem="rhe-ek-HYv" firstAttribute="leading" secondItem="VUw-XM-y6y" secondAttribute="leading" id="yju-uR-Dgh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="VUw-XM-y6y" id="mVR-Yq-7e3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ph-FI-1lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
