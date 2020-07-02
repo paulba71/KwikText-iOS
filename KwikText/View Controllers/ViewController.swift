@@ -114,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let fileManager = FileManager.default
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(fileName)
         print("Saving - " + paths)
-        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        let imageData = image.jpegData(compressionQuality: 0.5)
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
     }
     
@@ -168,9 +168,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             return true
         }
-        catch {
-            return false
-        }
     }
     
     func loadImages() -> Bool {
@@ -183,9 +180,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 index+=1
             }
             return true
-        }
-        catch {
-            return false
         }
     }
     
@@ -231,8 +225,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.present(messageVC, animated: true, completion: nil)
         } else {
             // prompt for a number
-            let alert = UIAlertController(title: "No number stored", message: "Please enter a number to send to", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Send", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "No number stored", message: "Please enter a number to send to", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Send", style: UIAlertAction.Style.default, handler: nil))
             alert.addTextField(configurationHandler: {(textField: UITextField!) in
                 textField.placeholder = "Enter number:"
                 textField.keyboardType = UIKeyboardType.phonePad

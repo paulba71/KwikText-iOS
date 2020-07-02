@@ -55,7 +55,7 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopove
             contactImage.image=UIImage(named:"person")!	
         }
         // Setup a touch recogniser for the image
-        let singleTap=UITapGestureRecognizer(target: self, action: Selector("tapDetected"))
+        let singleTap=UITapGestureRecognizer(target: self, action: Selector(("tapDetected")))
         singleTap.numberOfTapsRequired=1
         contactImage.isUserInteractionEnabled=true
         contactImage.addGestureRecognizer(singleTap)
@@ -114,7 +114,7 @@ class AddEditViewController: UIViewController, CNContactPickerDelegate, UIPopove
         self.nameField.text = contact.givenName + " " + contact.familyName
         if let imageData = contact.imageData {
             self.contactImage.image = UIImage(data: imageData)
-            self.contactImage.contentMode = UIViewContentMode.scaleAspectFit
+            self.contactImage.contentMode = UIView.ContentMode.scaleAspectFit
         }
         if contact.phoneNumbers.count==1{
             self.numberField.text = contact.phoneNumbers[0].value.stringValue;
