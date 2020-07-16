@@ -51,6 +51,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0B626F924BFCE71004F234A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
+				CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A0B626FA24BFCF7C004F234A /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CAD669711D89A8EF008F49F6 /* Numbers Custom Cell.swift */,
+				CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
 		CA1B1C1E1D83463A003289D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,13 +98,11 @@
 		CA1BB2321D7ADB5F00A4E0B7 /* KwikText */ = {
 			isa = PBXGroup;
 			children = (
+				A0B626FA24BFCF7C004F234A /* Custom Cells */,
+				A0B626F924BFCE71004F234A /* Storyboards */,
 				CA3E7B3424AEA59F0059F208 /* View Controllers */,
 				CA1BB2331D7ADB5F00A4E0B7 /* AppDelegate.swift */,
-				CA1BB2371D7ADB5F00A4E0B7 /* Main.storyboard */,
-				CAD669711D89A8EF008F49F6 /* Numbers Custom Cell.swift */,
-				CA925A8A1D82B5CC004BB6D1 /* CustomCell.swift */,
 				CA1BB23A1D7ADB5F00A4E0B7 /* Assets.xcassets */,
-				CA1BB23C1D7ADB5F00A4E0B7 /* LaunchScreen.storyboard */,
 				CA1BB23F1D7ADB5F00A4E0B7 /* Info.plist */,
 			);
 			path = KwikText;
